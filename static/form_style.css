@@ -1,0 +1,66 @@
+:root {
+    --main-color: #c40018;
+}
+
+main {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+#auth-form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    width: 80%;
+    padding: 10px;
+}
+
+#auth-form * {
+    display: block;
+    margin: 7px;
+}
+
+.form-wrap {
+    width: 60%;
+    height: 100%;
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    border-radius: 0 0 10px 10px;
+    box-shadow: 2px 2px 15px 1px var(--shadow-color);
+    background-color: #eeeeee;
+}
+
+input[type=submit] {
+    background-color: white;
+    margin: 15px;
+    border: 1px solid rgb(118, 118, 118);
+}
+
+input[type=text] {
+    width: 35%;
+}
+
+input[type=text]:focus {
+    width: 40%;
+}
+
+#from-text {
+    margin: 10px 0;
+}
+
+#from-text a {
+    color:var(--main-color);
+    text-align: center;
+}
+
+.btn {
+    margin: 20px 0 !important;
+    color: white;
+    background-color: var(--main-color) !important;
+    border-color: var(--main-color) !important;
+}

@@ -1,0 +1,23 @@
+{% extends "base.j2" %}
+{% block page_title %}
+	{{ title }}
+{% endblock page_title %}
+
+{% block main %}
+	<div id="tool-bar">
+		<h2>{{ note.title }}</h2>
+		<div id="info">
+			<span id="date">Last saved on: {{ note.last_save.strftime('%H:%M %d/%m/%Y') }}</span>
+			<div id="buttons">
+				<button type="submit" name="submit" form="edit-note" class="btn tool-button" value="save">Save</button>
+				<a href="{{ url_for('home') }}" class="btn tool-button">Home</a>
+				<button type="submit" name="submit" form="edit-note" class="btn tool-button" value="delete">Delete</button>
+			</div>
+		</div>
+	</div>
+
+	<form method="POST" action="{{ url_for('edit.edit', note_id=note.id)}}" id="edit-note">
+	  <textarea name="text" autocomplete="on"
+	  style="background-color: {{ color_by_id(note.color_id).value }};">{{ note.content }}</textarea>
+	</form>
+{% endblock main %}

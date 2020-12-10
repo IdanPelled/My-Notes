@@ -1,0 +1,33 @@
+{% extends "base.j2" %}
+{% block main %}
+
+	{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+		{% for category, message in messages %}
+			{% if category == "error" %}
+				<span class="message message-error">{{ message }}</span>
+			{% else %}
+				<span class="message message-success">{{ message }}</span>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+	{% endwith %}
+
+	{% if notes %}
+		<div id="all-notes">
+		{% for note in notes %}
+			<div class="note"
+			style="background-color: {{ color_by_id(note.color_id).value }};">
+					<div class="title">
+						<h2>{{ note.title }}</h2>
+					</div>
+					<a href="{{ url_for('edit.edit', note_id=note.id)}}" class="content">
+						<p>{{ note.content }}</p>
+					</a>
+			</div>
+		{% endfor %}
+		</div>
+	{% else %}
+		<span class="message message-info">You don't have any notes...</span>
+	{% endif %}
+{% endblock main %}

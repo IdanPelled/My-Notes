@@ -1,0 +1,40 @@
+{% extends "base.j2" %}
+{% block page_title %}
+	Sigh Up
+{% endblock page_title %}
+{% block head %}
+	<link rel="stylesheet" type="text/css"
+		  href="{{ url_for('static', filename='form_style.css') }}">
+{% endblock head %}
+{% block main %}
+	<div class="form-wrap">
+		<form id="auth-form" method="POST"
+			  action="{{ url_for('auth.signup') }}">
+			<h2>Sign up to My Notes</h2>
+			{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+				{% for category, message in messages %}
+					{% if category == "error" %}
+						<span class="message message-error">{{ message }}</span>
+					{% else %}
+						<span class="message message-success">{{ message }}</span>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+			{% endwith %}
+			<h3><label for="username">User name</label></h3>
+			<input type="text" id="username" name="username" required>
+
+			<h3><label for="email">Email</label></h3>
+			<input type="text" id="email" name="email" required>
+
+			<h3><label for="password">Password</label></h3>
+			<input type="text" id="password" name="password" required>
+
+			<input type="submit" class="btn" value="Sign up">
+
+			<span id="from-text">All ready have a user? <a href="{{ url_for('auth.login') }}">Log in!</a>.</span>
+
+		</form>
+	</div>
+{% endblock main %}

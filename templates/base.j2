@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<meta charset="utf-8">
+		<title>
+			{% if title %}
+				My Notes - {% block page_title %}{% endblock page_title %}
+			{% else %}
+				My Notes
+			{% endif %}
+		</title>
+		<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+		crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+		{% block head %}{% endblock head %}
+
+
+	</head>
+	<body>
+		<!-- nav bar -->
+        <nav class="navbar navbar-expand-lg">
+          <header><a class="navbar-brand" href="{{ url_for('home') }}"><h1>My Notes</h1></a></header>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+				{% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <button type="button" id="small-plus" class="add_note"
+                    data-toggle="modal" data-target="#create_note">
+                        <!-- https://www.flaticon.com/authors/pixel-perfect -->
+                        <img src="{{ url_for('static', filename='plus.png') }}" alt="plus icon" height="35">
+                    </button>
+                </li>
+				{% endif %}
+
+                <span class="navbar-text">
+					{% if current_user.is_authenticated %}
+                		Welcome {{ current_user.username }} |
+						<a href="{{ url_for('auth.logout') }}">Log out</a>
+					{% endif %}
+                </span>
+            </ul>
+          </div>
+        </nav>
+
+		<main>
+            {% block main %}
+            {% endblock main %}
+
+			<!--pop up message-->
+        	<div class="modal fade" id="create_note" tabindex="-1" role="dialog"
+			aria-labelledby="create_noteLabel" aria-hidden="true">
+  		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+
+				<h4 class="modal-title" id="create_noteLabel">Create New Note</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+
+			  </div>
+			  <div class="modal-body">
+				  {% if colors %}
+				  <form action="" method="POST">
+					  <h5>Note title:</h5>
+					  <input type="text" name="title" maxlength="45" size="45" required>
+
+
+					  <h5>Chose color:</h5>
+					  {% for color in colors %}
+
+					  	<input type="radio" value="{{ color.id }}"
+							   name="color_id" id="{{ color.id }}">
+					  	<label for="{{ color.id }}">
+							{{ color.name }}
+						</label>
+
+					  {% endfor %}
+
+					  <br><input type="submit" value="Create">
+				  </form>
+				  {% else %}
+				  	<span class="message message-error">Error: No colors in the data base</span>
+				  {% endif %}
+
+			  </div>
+		    </div>
+		  </div>
+		</div>
+		</main>
+
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+	</body>
+</html>

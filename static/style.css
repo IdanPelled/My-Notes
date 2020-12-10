@@ -1,0 +1,197 @@
+:root {
+  --bg-color: #dedede;
+  --main-color: #c40018;
+  --shadow-color: #bbb9b9;
+  --dark-grey: #292725;
+  --white: #eeeeee;
+
+}
+
+
+/*global*/
+body {
+	font-size: 15px;
+	margin: 0;
+	background-color: var(--bg-color);
+}
+
+button:focus, textarea:focus{
+	outline:0;
+}
+
+
+/*navbar*/
+nav {
+	font-size: 1.4rem;
+	background-color: var(--main-color);
+}
+
+nav h1, nav span, nav a{
+	color: white;
+}
+
+h1 {
+    font-weight: 600;
+}
+
+a:hover {
+	color: var(--white);
+}
+
+
+/*main*/
+
+main button {
+	padding: 0;
+	border-style: none;
+	text-align: left;
+	cursor: pointer;
+}
+
+
+/*notes*/
+#all-notes {
+	display: flex;
+	flex-flow: row-reverse wrap;
+	justify-content: center;
+	margin-top: 15px;
+}
+
+.note {
+	box-shadow: 12px 12px 12px 4px var(--shadow-color);
+	background-color: var(--white);
+    border-radius: 8px 8px 8px 8px;
+	min-width: 250px;
+	max-width: 250px;
+	height: 350px;
+	margin: 20px;
+	padding: 0px;
+}
+
+.note a {
+    color: var(--dark-grey);
+    text-decoration: none;
+}
+
+.note p {
+    overflow: hidden;
+    height: 275px;
+}
+
+.title {
+    border-radius: 8px 8px 0 0;
+	background-color: var(--dark-grey);
+	padding: 7px;
+}
+
+.note .title h2 {
+	font-size: 1.5rem;
+	text-align: center;
+	color: white;
+	margin: 0;
+	padding-bottom:10px;
+}
+
+.note .content {
+    display: block;
+    padding: 5px 10px;
+	font-size: 1.25rem;
+}
+
+.note #delete-note {
+    margin-left: calc(100% - 30px);
+    margin-top: 10px;
+
+}
+
+
+
+/*pop-up*/
+.add_note {
+	background-color: transparent;
+	border-color: transparent;
+	cursor: pointer;
+	margin: 0;
+}
+
+
+
+/*edit*/
+#tool-bar {
+    padding: 20px 15px;
+    background-color:  var(--white);
+    box-shadow: 2px 2px 12px 4px var(--shadow-color);
+
+}
+#tool-bar #info {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#tool-bar h2 {
+    font-weight: 500;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+#tool-bar .tool-button{
+    color: white;
+    background-color: var(--main-color);
+}
+
+#tool-bar #date {
+    font-weight: 580;
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+#edit-note {
+    width: 100%;
+    padding: 0;
+}
+
+#edit-note textarea {
+    width: 100%;
+    height: 500px; /*fix!*/
+    resize: none;
+    overflow: auto;
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 35px;
+    font-size: 1.3rem;
+    box-shadow: 2px 2px 15px 1px var(--shadow-color);
+}
+
+
+/*messages*/
+.message {
+    display: block;
+    border-radius: 5px;
+    color: var(--dark-grey);
+    padding: 4px 10px;
+    text-align: center;
+}
+
+.message-error {
+    background-color: #FF9C86;
+}
+
+.message-success {
+    background-color: #86FF9C;
+}
+
+.message-info {
+    padding: 20px 10px;
+    font-size: 22px;
+    background-color: var(--white);
+}
+
+
+/*phone view*/
+@media (max-width: 800px) {
+	/*Not yet*/
+}
