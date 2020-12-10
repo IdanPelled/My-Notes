@@ -6,7 +6,7 @@ from flask_login import UserMixin
 from peewee import (CharField, DateTimeField, DoesNotExist,
                     ForeignKeyField, IntegrityError, Model, TextField)
 
-from config import COLORS, db
+from .config import COLORS, db
 
 
 class Base(UserMixin, Model):

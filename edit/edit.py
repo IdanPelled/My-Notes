@@ -15,7 +15,7 @@ edit_blueprint = Blueprint('edit', __name__,
 def edit(note_id):
     notes_id = [note.id for note in get_all_user_notes(current_user.id)]
     if note_id not in notes_id:
-        flash(f'This is not your note!', category='error')
+        flash('This is not your note!', category='error')
         return redirect(url_for('home'))
 
     note = get_note_by_id(note_id)

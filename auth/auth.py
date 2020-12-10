@@ -1,6 +1,6 @@
-from flask import render_template, Blueprint, request, redirect, url_for, flash
-from flask_login import logout_user, login_user, current_user
-from models import authenticate, get_user_by_username, add_user, create_welcome_note
+from flask import Blueprint, flash, redirect, render_template, request, url_for
+from flask_login import current_user, login_user, logout_user
+from models import add_user, authenticate, create_welcome_note, get_user_by_username
 
 auth_blueprint = Blueprint('auth', __name__,
                            template_folder='templates',
@@ -20,7 +20,7 @@ def login():
                 login_user(user)
                 flash(f'Logged in successfully for {current_user.username}.', category='success')
                 return redirect(url_for('home'))
-            flash(f'Username or Password are incorrect.', category='error')
+            flash('Username or Password are incorrect.', category='error')
         else:
             flash(f'"{username}" is not registered, try signing up.', category='error')
 
@@ -37,7 +37,8 @@ def signup():
         if user is not None:
             create_welcome_note(user)
             return redirect(url_for('auth.login'))
-        flash(f'Username and email needs to be unique.', category='error')
+        else:
+            flash('Username and email needs to be unique.', category='error')
     return render_template('signup.j2')
 
 
