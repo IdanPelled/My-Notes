@@ -1,11 +1,11 @@
 from flask import Flask, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, LoginManager
 
-from .auth.auth import auth_blueprint
-from .config import db, SECRET_KEY
-from .edit.edit import edit_blueprint
-from .models import (add_note, get_all_colors, get_all_user_notes,
-                     get_color_by_id, get_user_by_id)
+from auth.auth import auth_blueprint
+from config import db, SECRET_KEY
+from edit.edit import edit_blueprint
+from models import (add_note, get_all_colors, get_all_user_notes,
+                    get_color_by_id, get_user_by_id)
 
 main = Flask(__name__)
 
