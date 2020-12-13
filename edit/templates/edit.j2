@@ -16,7 +16,7 @@
 		</div>
 	</div>
 
-	<form method="POST" action="{{ url_for('edit.edit', note_id=note.id)}}" id="edit-note">
+	<form method="POST" action="{{ url_for('edit.edit', note_id=note.id)}}" id="edit">
 	  <textarea name="text" autocomplete="on"
 	  style="background-color: {{ color_by_id(note.color_id).value }};">{{ note.content }}</textarea>
 	</form>
