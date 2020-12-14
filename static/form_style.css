@@ -58,11 +58,16 @@ input[type=text]:focus {
     text-align: center;
 }
 
+.field {
+    margin-top: 20px;
+}
+
 .btn {
-    margin: 20px 0 !important;
+    margin: 10px 0 0 0 !important;
     color: white;
     background-color: var(--main-color) !important;
     border-color: var(--main-color) !important;
+    display: block !important;
 }
 
 /*phone view*/

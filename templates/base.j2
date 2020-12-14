@@ -41,9 +41,12 @@
 
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<span class="navbar-text">Welcome {{ current_user.username }} |
-						<a href="{{ url_for('auth.logout') }}">Log out</a>
-					</span>
+					<li>
+						<span class="navbar-text">Welcome {{ current_user.username }} |
+							<a href="{{ url_for('auth.logout') }}">Log out</a>
+						</span>
+					</li>
+
 				</ul>
 
 			  </div>
@@ -71,19 +74,19 @@
 			  <div class="modal-body">
 				  {% if colors %}
 				  <form action="{{ url_for('home') }}" method="POST">
-					  <h5>Note title:</h5>
-					  <input type="text" name="title" maxlength="45" size="45" required>
+					  <div class="field">
+						  <h5>Note title:</h5>
+						  <input type="text" name="title" maxlength="45" size="45" required>
+					  </div>
 
-					  <h5>Chose color:</h5>
-					  {% for color in colors %}
-
-					  	<input type="radio" value="{{ color.id }}"
-							   name="color_id" id="{{ color.id }}">
-					  	<label for="{{ color.id }}">
-							{{ color.name }}
-						</label>
-
-					  {% endfor %}
+					  <div class="field">
+						  <h5>Chose color:</h5>
+						  {% for color in colors %}
+							<input type="radio" value="{{ color.id }}"
+								   name="color_id" id="{{ color.id }}">
+							<label for="{{ color.id }}">{{ color.name }}</label>
+						  {% endfor %}
+					  </div>
 
 					  <input type="submit" value="Create" class="btn">
 				  </form>
