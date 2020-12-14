@@ -64,3 +64,13 @@ input[type=text]:focus {
     background-color: var(--main-color) !important;
     border-color: var(--main-color) !important;
 }
+
+/*phone view*/
+@media (max-width: 800px) {
+	.form-wrap {
+        width: 90%;
+    }
+    #auth-form {
+        width: 100%;
+    }
+}

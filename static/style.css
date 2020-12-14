@@ -172,6 +172,7 @@ main button {
 
 /*messages*/
 .message {
+    width: 100%;
     display: block;
     border-radius: 5px;
     color: var(--dark-grey);
@@ -191,10 +192,4 @@ main button {
     padding: 20px 10px;
     font-size: 22px;
     background-color: var(--white);
-}
-
-
-/*phone view*/
-@media (max-width: 800px) {
-	/*Not yet*/
 }

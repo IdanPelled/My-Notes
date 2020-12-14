@@ -25,10 +25,10 @@
 
 		<nav class="navbar navbar-expand-lg navbar-dark">
 		  <header><a class="navbar-brand" href="{{ url_for('home') }}"><h1>My Notes</h1></a></header>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
 		  {% if current_user.is_authenticated %}
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
 			  <div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav mr-auto">
 				  <li class="nav-item active">
@@ -85,7 +85,7 @@
 
 					  {% endfor %}
 
-					  <br><input type="submit" value="Create">
+					  <input type="submit" value="Create" class="btn">
 				  </form>
 				  {% else %}
 				  	<span class="message message-error">Error: No colors in the data base</span>
