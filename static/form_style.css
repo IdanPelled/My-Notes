@@ -62,6 +62,10 @@ input[type=text]:focus {
     margin-top: 20px;
 }
 
+.modal-body {
+    padding: 0 0 20px 20px !important;
+}
+
 .btn {
     margin: 10px 0 0 0 !important;
     color: white;
