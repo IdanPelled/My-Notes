@@ -118,11 +118,13 @@ main button {
 
 /*edit*/
 #tool-bar {
+    width: 100%;
     padding: 20px 15px;
     background-color:  var(--white);
     box-shadow: 2px 2px 12px 4px var(--shadow-color);
 
 }
+
 #tool-bar #info {
     display: flex;
     flex-flow: row;
