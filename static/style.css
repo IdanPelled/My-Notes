@@ -172,7 +172,7 @@ main button {
 
 /*messages*/
 .message {
-    width: 100%;
+    width: inherit;
     display: block;
     border-radius: 5px;
     color: var(--dark-grey);
@@ -192,4 +192,12 @@ main button {
     padding: 20px 10px;
     font-size: 22px;
     background-color: var(--white);
+}
+
+#message-warp {
+    width: 100%;
+}
+
+#message-warp-custom * {
+    width: unset;
 }

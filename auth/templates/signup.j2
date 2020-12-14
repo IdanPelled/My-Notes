@@ -2,6 +2,7 @@
 {% block page_title %}
 	Sigh Up
 {% endblock page_title %}
+
 {% block main %}
 	<div class="form-wrap">
 		<form id="auth-form" method="POST"
@@ -9,6 +10,7 @@
 			<h2>Sign up to My Notes</h2>
 			{% with messages = get_flashed_messages(with_categories=true) %}
 			{% if messages %}
+				<div class="message-warp-custom">
 				{% for category, message in messages %}
 					{% if category == "error" %}
 						<span class="message message-error">{{ message }}</span>
@@ -16,6 +18,7 @@
 						<span class="message message-success">{{ message }}</span>
 					{% endif %}
 				{% endfor %}
+				</div>
 			{% endif %}
 			{% endwith %}
 			<h3><label for="username">User name</label></h3>
