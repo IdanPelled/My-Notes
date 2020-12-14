@@ -1,7 +1,7 @@
 from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flask_login import current_user
 from flask_login import login_required
-from models import (get_all_user_notes, get_color_by_id,
+from models import (get_all_colors, get_all_user_notes, get_color_by_id,
                     get_note_by_id, remove_note, save_note)
 
 
@@ -32,5 +32,6 @@ def edit(note_id):
     return render_template(
         'edit.j2',
         note=note,
+        colors=get_all_colors(),
         color_by_id=get_color_by_id
     )

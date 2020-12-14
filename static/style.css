@@ -34,8 +34,8 @@ h1 {
     font-weight: 600;
 }
 
-a:hover {
-	color: var(--white);
+nav a:hover, .navbar-text {
+	color: var(--white) !important;
 }
 
 
