@@ -71,7 +71,6 @@ input[type=text]:focus {
     color: white;
     background-color: var(--main-color) !important;
     border-color: var(--main-color) !important;
-    display: block !important;
 }
 
 /*phone view*/
